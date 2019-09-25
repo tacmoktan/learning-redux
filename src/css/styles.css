@@ -1,0 +1,27 @@
+
+.post{
+    margin: 20px 0;
+    width:20vw;
+    min-width: 250px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.452);
+    border-radius:5px;
+}
+
+.post p{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.single-post{
+    width:100%;
+    border:1px solid black;
+    padding:20px;
+}
+
+.blogs-container{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+}   
