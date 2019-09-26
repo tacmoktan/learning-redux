@@ -1,34 +1,40 @@
 import React from 'react';
 import '../css/styles.css';
-//component 
-import Post from './Post';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const posts = [
-    { id: 1, title: 'Title 1', body: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.' },
-    { id: 2, title: 'Title 2', body: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.' },
-    { id: 3, title: 'Title 3', body: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.' },
-]
+const Blogs = (props) => {
 
-const Blogs = () => {
-
+    const { posts } = props;
     const allPost = posts.map(post => (
-        <div className="post" key={post.id}>
-            <h3>{post.title}</h3>
-            <p>
-                {post.body}
-            </p>
-        </div>
+        <Link to={`/post/${post.id}`} key={post.id} >
+            <div className="post" >
+                <h3>{post.title}</h3>
+                <p>
+                    {post.body}
+                </p>
+            </div>
+        </Link>
     ));
 
+    const content = allPost.length > 0? allPost : <h3>No more posts</h3>;
     return (
         <>
         <h1>BLOGS</h1>
         <div className="blogs-container">
-            {allPost}
-            <Post />
+
+            {content}
+
         </div>
         </>
     );
 }
 
-export default Blogs;
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    }
+}
+
+export default connect(mapStateToProps)(Blogs);
