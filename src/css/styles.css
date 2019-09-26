@@ -1,11 +1,25 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.App{
+    padding:40px 0;
+    background:whitesmoke;
+}
+
+.blogs-header{
+    text-align:center;
+    font-size:3em;
+}
 
 .post{
     margin: 20px 0;
     width:20vw;
     min-width: 250px;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.452);
     border-radius:5px;
+    background:white;
 }
 
 .post p{
@@ -13,11 +27,17 @@
     overflow:hidden;
     text-overflow:ellipsis;
 }
+.post p, .post h3, .single-post p, .single-post h1{
+    background:white;
+}
+.post-container{
+    text-decoration:none;
+}
 
 .single-post{
-    width:100%;
-    border:1px solid black;
     padding:20px;
+    text-align:center;
+    background:white;
 }
 
 .blogs-container{
