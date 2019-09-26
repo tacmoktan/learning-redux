@@ -12,13 +12,17 @@ const Post = (props) => {
         history.push('/');
     }
 
+
+    const content = post ?
+        (<>
+            <h1> {post.title} </h1>
+            <p> {post.body} </p>
+            <button onClick={handleClick}> DELETE POST </button>
+            </>) : <h3> "Post not found" </h3>
+
     return (
         <div className="single-post">
-            <h3>{post.title}</h3>
-            <p>
-                {post.body}
-            </p>
-            <button onClick={handleClick}>DELETE POST</button>
+            {content}
         </div>
     );
 }

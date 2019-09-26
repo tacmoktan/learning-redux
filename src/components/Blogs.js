@@ -7,20 +7,18 @@ const Blogs = (props) => {
 
     const { posts } = props;
     const allPost = posts.map(post => (
-        <Link to={`/post/${post.id}`} key={post.id} >
+        <Link to={`/post/${post.id}`} className="post-container" key={post.id} >
             <div className="post" >
                 <h3>{post.title}</h3>
-                <p>
-                    {post.body}
-                </p>
+                <p>{post.body}</p>
             </div>
         </Link>
     ));
 
-    const content = allPost.length > 0? allPost : <h3>No more posts</h3>;
+    const content = allPost.length > 0 ? allPost : <h3>No more posts</h3>;
     return (
         <>
-        <h1>BLOGS</h1>
+        <h1 className="blogs-header">BLOGS</h1>
         <div className="blogs-container">
 
             {content}
